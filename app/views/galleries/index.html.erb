@@ -1,0 +1,7 @@
+<h1>Pixtr Galleries</h1>
+<%= link_to "New Gallery", "/galleries/new" %>
+<ul>
+<% @galleries.each do |gallery| %>
+  <li><%= gallery.name %></li>
+<% end %>
+</ul>
