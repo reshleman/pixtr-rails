@@ -2,6 +2,6 @@
 <%= link_to "New Gallery", "/galleries/new" %>
 <ul>
 <% @galleries.each do |gallery| %>
-  <li><%= gallery.name %></li>
+  <li><%= link_to gallery.name, "galleries/#{gallery.id}" %></li>
 <% end %>
 </ul>
