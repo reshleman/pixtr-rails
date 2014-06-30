@@ -57,4 +57,5 @@ Rails.application.routes.draw do
   get "/galleries/new" => "galleries#new"
   get "/galleries/:id" => "galleries#show"
   post "/galleries" => "galleries#create"
+  delete "/galleries/:id" => "galleries#destroy"
 end
