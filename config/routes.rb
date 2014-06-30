@@ -54,4 +54,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   get "/galleries" => "galleries#index"
+  get "/galleries/new" => "galleries#new"
+  post "/galleries" => "galleries#create"
 end
