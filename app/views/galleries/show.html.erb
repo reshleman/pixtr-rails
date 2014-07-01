@@ -3,3 +3,5 @@
 <p> <%= @gallery.description %></p>
 
 <%= link_to "Delete this Gallery", "/galleries/#{@gallery.id}", method: :delete, data: { confirm: "Are you sure?" } %>
+
+<%= link_to "Edit this Gallery", "/galleries/#{@gallery.id}/edit" %>
