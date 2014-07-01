@@ -2,6 +2,16 @@
 
 <p> <%= @gallery.description %></p>
 
-<%= link_to "Delete this Gallery", gallery_path(@gallery), method: :delete, data: { confirm: "Are you sure?" } %>
+<div>
+  <%= link_to "Add Image", new_gallery_image_path(@gallery) %>
+  <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %>
+  <%= link_to "Delete Gallery", gallery_path(@gallery), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
+<br>
 
-<%= link_to "Edit this Gallery", edit_gallery_path(@gallery) %>
+<% @images.each do |image| %>
+  <div>
+    <%= image_tag image.url, width: "300px" %>
+    <%= link_to image.name, gallery_image_path(@gallery.id, image) %>
+  </div>
+<% end %>
