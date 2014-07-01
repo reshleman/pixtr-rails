@@ -53,11 +53,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  get "/galleries" => "galleries#index"
-  get "/galleries/new" => "galleries#new"
-  get "/galleries/:id" => "galleries#show", as: :gallery
-  get "/galleries/:id/edit" => "galleries#edit"
-  patch "/galleries/:id" => "galleries#update"
-  post "/galleries" => "galleries#create"
-  delete "/galleries/:id" => "galleries#destroy"
+  root to: "galleries#index"
+  resources :galleries
 end
