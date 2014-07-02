@@ -9,9 +9,4 @@
 </div>
 <br>
 
-<% @images.each do |image| %>
-  <div>
-    <%= image_tag image.url, width: "300px" %>
-    <%= link_to image.name, gallery_image_path(@gallery.id, image) %>
-  </div>
-<% end %>
+<%= render @images %>
