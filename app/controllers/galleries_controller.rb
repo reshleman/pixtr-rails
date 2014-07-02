@@ -8,8 +8,12 @@ class GalleriesController < ApplicationController
   end
 
   def create
-    Gallery.create(gallery_params)
-    redirect_to galleries_path
+    @gallery = Gallery.new(gallery_params)
+    if @gallery.save
+      redirect_to galleries_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -28,9 +32,12 @@ class GalleriesController < ApplicationController
   end
 
   def update
-    gallery = Gallery.find(params["id"])
-    gallery.update(gallery_params)
-    redirect_to gallery_path(gallery)
+    @gallery = Gallery.find(params["id"])
+    if @gallery.update(gallery_params)
+      redirect_to gallery_path(@gallery)
+    else
+      render :edit
+    end
   end
 
   private
