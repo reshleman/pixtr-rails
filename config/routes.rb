@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   #   end
   root to: "galleries#index"
 
-  resource :session, only: [:new, :create]
+  resource :session, only: [:new, :create, :destroy]
 
   resources :users, only: [:new, :create]
   resources :galleries do
