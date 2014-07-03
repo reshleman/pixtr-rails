@@ -38,5 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# Use rails_12factor
-gem 'rails_12factor', group: :production
+# Production Settings
+group :production do
+  gem 'rails_12factor'
+  gem 'thin' #production server
+end
