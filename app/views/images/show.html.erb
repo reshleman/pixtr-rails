@@ -1,10 +1,10 @@
 <h1><%= @image.name %></h1>
 <p><%= @image.description %></p>
-<div>
+
+<nav>
+  <%= link_to @gallery.name, @gallery %>
   <%= link_to "Edit Image", edit_gallery_image_path(@gallery, @image) %>
   <%= link_to "Delete Image", [@gallery, @image], method: "delete", data: { confirm: "Are you sure?" } %>
-</div>
+</nav>
+
 <%= image_tag @image.url %>
-<div>
-  <%= link_to @gallery.name, @gallery %>
-</div>
