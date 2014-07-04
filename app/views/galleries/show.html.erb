@@ -5,7 +5,7 @@
 <div>
   <%= link_to "Add Image", new_gallery_image_path(@gallery) %>
   <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %>
-  <%= link_to "Delete Gallery", gallery_path(@gallery), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to "Delete Gallery", @gallery, method: :delete, data: { confirm: "Are you sure?" } %>
 </div>
 <br>
 
