@@ -59,6 +59,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :galleries do
-    resources :images
+    resources :images, except: [:index]
   end
 end
