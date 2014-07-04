@@ -1,18 +1,18 @@
 class ImagesController < ApplicationController
   def show
-    @image = Image.find(params[:id])
-    @gallery = @image.gallery
+    @gallery = find_gallery
+    @image = find_image_in(@gallery)
   end
 
   def new
-    @gallery = Gallery.find(params[:gallery_id])
+    @gallery = find_gallery
     @image = Image.new
   end
 
   def create
-    @gallery = Gallery.find(params[:gallery_id])
-    @image = Image.new(image_params)
-    @image.gallery_id = params[:gallery_id]
+    @gallery = find_gallery
+    @image = @gallery.images.new(image_params)
+
     if @image.save
       redirect_to @gallery
     else
@@ -21,13 +21,14 @@ class ImagesController < ApplicationController
   end
 
   def edit
-    @image = Image.find(params[:id])
-    @gallery = @image.gallery
+    @gallery = find_gallery
+    @image = find_image_in(@gallery)
   end
 
   def update
-    @gallery = Gallery.find(params[:gallery_id])
-    @image = Image.find(params[:id])
+    @gallery = find_gallery
+    @image = find_image_in(@gallery)
+
     if @image.update(image_params)
       redirect_to @gallery
     else
@@ -36,8 +37,8 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    image = Image.find(params[:id])
-    gallery = image.gallery
+    gallery = find_gallery
+    image = find_image_in(gallery)
     image.destroy
 
     redirect_to gallery
@@ -46,6 +47,16 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:name, :url, :description)
+    params.
+      require(:image).
+      permit(:name, :url, :description)
+  end
+
+  def find_gallery
+    Gallery.find(params[:gallery_id])
+  end
+
+  def find_image_in(gallery)
+    gallery.images.find(params[:id])
   end
 end
