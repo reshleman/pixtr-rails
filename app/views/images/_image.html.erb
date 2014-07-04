@@ -1,4 +1,4 @@
 <div>
   <%= image_tag image.url, width: "300px" %>
-  <%= link_to image.name, gallery_image_path(image.gallery.id, image) %>
+  <%= link_to image.name, [image.gallery, image] %>
 </div>
