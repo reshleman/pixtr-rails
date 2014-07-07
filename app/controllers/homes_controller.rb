@@ -1,5 +1,9 @@
 class HomesController < ApplicationController
   def show
-    @user = User.new
+    if signed_in?
+      redirect_to current_user
+    else
+      @user = User.new
+    end
   end
 end

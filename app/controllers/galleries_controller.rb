@@ -10,7 +10,9 @@ class GalleriesController < ApplicationController
   end
 
   def create
-    @gallery = Gallery.new(gallery_params)
+    user = current_user
+    gallery_params_with_user = gallery_params.merge(user_id: user.id)
+    @gallery = Gallery.new(gallery_params_with_user)
     if @gallery.save
       redirect_to galleries_path
     else
