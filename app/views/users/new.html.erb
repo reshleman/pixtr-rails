@@ -4,7 +4,11 @@
   <%= render "errors", object: @user %>
   <div>
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.email_field :email %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
   </div>
   <%= form.submit "Sign Up" %>
 <% end %>

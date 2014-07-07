@@ -38,6 +38,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use monbon for authentication
+gem 'monban', '~> 0.1.0'
+
 # Production Settings
 group :production do
   gem 'rails_12factor'
