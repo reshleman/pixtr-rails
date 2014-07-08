@@ -2,4 +2,8 @@
 
 <p><%= link_to "New Gallery", new_gallery_path %><p>
 
-<%= render @user.galleries %>
+<ul>
+  <% @user.galleries.each do |gallery| %>
+    <li><%= render gallery %></li>
+  <% end %>
+</ul>
