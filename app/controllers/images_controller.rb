@@ -2,6 +2,7 @@ class ImagesController < ApplicationController
   def show
     @gallery = find_gallery
     @image = find_image_in(@gallery)
+    @comment = Comment.new
   end
 
   def new
