@@ -9,9 +9,10 @@
 <body>
 
   <div>
-    <%= link_to "Home", root_path %>
 
     <% if signed_in? %>
+      <%= link_to "My Galleries", current_user %>
+      <%= link_to "All Galleries", galleries_path %>
       <%= current_user.email %>
       (<%= link_to "Sign Out", session_path, method: :delete %>)
     <% else %>
