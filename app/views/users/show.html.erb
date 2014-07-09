@@ -1,9 +1,21 @@
-<h1><%= @user.email %>'s Galleries</h1>
+<h1><%= @user.email %></h1>
+
+<h2>Galleries</h2>
 
 <p><%= link_to "New Gallery", new_gallery_path %><p>
 
 <ul>
   <% @user.galleries.each do |gallery| %>
     <li><%= render gallery %></li>
+  <% end %>
+</ul>
+
+<h2>Groups</h2>
+
+<p><%= link_to "New Group", new_group_path %></p>
+
+<ul>
+  <% @user.groups.each do |group| %>
+    <li><%= group.name%></li>
   <% end %>
 </ul>
