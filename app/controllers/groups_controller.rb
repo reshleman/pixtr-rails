@@ -9,10 +9,9 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    group_membership = GroupMembership.new(group_membership_params(@group))
+    @group.users << current_user
 
     if @group.save
-      group_membership.save
       redirect_to groups_path
     else
       render :new
@@ -25,9 +24,5 @@ class GroupsController < ApplicationController
     params.
       require(:group).
       permit(:name, :description)
-  end
-
-  def group_membership_params(group)
-    { user: current_user, group: group }
   end
 end
