@@ -3,13 +3,13 @@
 <p><%= @group.description %><p>
 
 <% unless @group.users.include?(current_user) %>
-  <%= link_to "Join this Group", group_memberships_path(group_id: @group.id), method: :post %>
+  <%= link_to "Join this Group", join_group_path(@group), method: :post %>
 <% end %>
 
 <h2>Group Members</h2>
 
 <ul>
   <% @group.users.each do |user| %>
-    <li>user.email</li>
+    <li><%= user.email %></li>
   <% end %>
 </ul>

@@ -1,8 +1,7 @@
 class GroupMembershipsController < ApplicationController
   def create
-    group = Group.find(params[:group_id])
-    group.users << current_user
-    group.save
+    group = Group.find(params[:id])
+    current_user.join(group)
 
     redirect_to group
   end
