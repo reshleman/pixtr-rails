@@ -6,6 +6,10 @@
   <%= link_to "Join this Group", join_group_path(@group), method: :post %>
 <% end %>
 
+<h2>Images</h2>
+
+<%= render @group.images %>
+
 <h2>Group Members</h2>
 
 <ul>

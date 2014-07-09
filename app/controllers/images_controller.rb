@@ -50,7 +50,7 @@ class ImagesController < ApplicationController
   def image_params
     params.
       require(:image).
-      permit(:name, :url, :description)
+      permit(:name, :url, :description, group_ids: [])
   end
 
   def find_gallery

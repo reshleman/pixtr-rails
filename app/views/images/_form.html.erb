@@ -11,3 +11,8 @@
   <%= form.label :url %>
   <%= form.text_field :url %>
 </div>
+<div>
+  <%= field_set_tag "Add Image to Groups" do %>
+    <%= form.collection_check_boxes(:group_ids, current_user.groups, :id, :name) %>
+  <% end %>
+</div>
