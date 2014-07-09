@@ -1,5 +1,7 @@
 <h1>New Group</h1>
 
+<%= render "errors", object: @group %>
+
 <%= form_for @group do |form| %>
   <div>
     <%= form.label :name %>
