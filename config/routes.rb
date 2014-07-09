@@ -63,5 +63,6 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
     end
   end
-  resources :groups, only: [:index, :new, :create]
+  resources :groups, only: [:index, :new, :create, :show]
+  resources :group_memberships, only: [:create]
 end
