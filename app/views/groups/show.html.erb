@@ -2,7 +2,7 @@
 
 <p><%= @group.description %><p>
 
-<% if @group.users.include?(current_user) %>
+<% if current_user.member?(@group) %>
   <%= link_to "Leave this Group", leave_group_path(@group), method: :delete, data: { confirm: "Are you sure?" } %>
 <% else %>
   <%= link_to "Join this Group", join_group_path(@group), method: :post %>
