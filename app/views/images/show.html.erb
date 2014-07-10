@@ -7,15 +7,28 @@
   <%= link_to "Delete Image", [@gallery, @image], method: :delete, data: { confirm: "Are you sure?" } %>
 </nav>
 
-<%= image_tag @image.url %>
+<section class="image">
+  <%= image_tag @image.url %>
+</section>
 
-<h2>Comments</h2>
+<section class="likes">
+  <%= pluralize(@image.likes.count, "Like") %>
+  <% if current_user.likes?(@image) %>
+    <%= link_to "Unlike", [@gallery, @image, :like], method: :delete %>
+  <% else %>
+    <%= link_to "Like", [@gallery, @image, :like], method: :post %>
+  <% end %>
+</section>
 
-<%= render @image.comments %>
+<section class="comments">
+  <h2>Comments</h2>
 
-<h2>Post a Comment</h2>
+  <%= render @image.comments %>
 
-<%= form_for [@gallery, @image, @comment] do |form| %>
-  <%= form.text_area :content %>
-  <%= form.submit "Add Comment" %>
-<% end %>
+  <h2>Post a Comment</h2>
+
+  <%= form_for [@gallery, @image, @comment] do |form| %>
+    <%= form.text_area :content %>
+    <%= form.submit "Add Comment" %>
+  <% end %>
+</section>
