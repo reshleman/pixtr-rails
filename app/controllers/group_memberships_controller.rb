@@ -5,4 +5,11 @@ class GroupMembershipsController < ApplicationController
 
     redirect_to group
   end
+
+  def destroy
+    group = Group.find(params[:id])
+    current_user.leave(group)
+
+    redirect_to group
+  end
 end
