@@ -9,4 +9,7 @@ class Image < ActiveRecord::Base
   validates :name, presence: true
   validates :url, presence: true
   validates :description, presence: true
+
+  # Tagging
+  acts_as_taggable
 end

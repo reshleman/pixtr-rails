@@ -20,6 +20,14 @@
   <% end %>
 </section>
 
+<section class="tags">
+  <h2>Tags</h2>
+
+  <% @image.tags.each do |tag| %>
+    <div><%= tag %></div>
+  <% end %>
+</section>
+
 <section class="comments">
   <h2>Comments</h2>
 

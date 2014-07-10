@@ -41,6 +41,9 @@ gem 'spring',        group: :development
 # Use monbon for authentication
 gem 'monban', '~> 0.1.0'
 
+# Tagging
+gem 'acts-as-taggable-on', '~> 3.2.6'
+
 # Production Settings
 group :production do
   gem 'rails_12factor'
