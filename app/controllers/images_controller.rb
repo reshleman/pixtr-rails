@@ -31,7 +31,7 @@ class ImagesController < ApplicationController
     @image = find_image_in(@gallery)
 
     if @image.update(image_params)
-      redirect_to @gallery
+      redirect_to [@gallery, @image]
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class ImagesController < ApplicationController
   def image_params
     params.
       require(:image).
-      permit(:name, :url, :description, group_ids: [])
+      permit(:name, :url, :description, :tag_list, group_ids: [])
   end
 
   def find_gallery

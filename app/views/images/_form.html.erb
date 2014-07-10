@@ -16,3 +16,7 @@
     <%= form.collection_check_boxes(:group_ids, current_user.groups, :id, :name) %>
   <% end %>
 </div>
+<div>
+  <%= form.label :tag_list %>
+  <%= form.text_field :tag_list %>
+</div>
