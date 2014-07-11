@@ -16,4 +16,4 @@
 
 <h2>Group Members</h2>
 
-<%= render_list @group.users %>
+<%= render_list(@group.users) || "This group has no members." %>

@@ -6,7 +6,7 @@
   <p><%= link_to "New Gallery", new_gallery_path %><p>
 <% end %>
 
-<%= render_list @user.galleries %>
+<%= render_list(@user.galleries) || "This user has no galleries." %>
 
 <h2>Groups</h2>
 
@@ -14,4 +14,4 @@
   <p><%= link_to "New Group", new_group_path %></p>
 <% end %>
 
-<%= render_list @user.groups %>
+<%= render_list(@user.groups) || "This user has no groups." %>

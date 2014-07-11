@@ -2,7 +2,7 @@ module ApplicationHelper
   def render_list(collection)
     content_tag(:ul) do
       raw collection_as_lis(collection).join
-    end
+    end unless collection.empty?
   end
 
   private

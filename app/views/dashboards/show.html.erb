@@ -5,7 +5,7 @@
 
   <p><%= link_to "New Gallery", new_gallery_path %><p>
 
-  <%= render_list @user.galleries %>
+  <%= render_list(@user.galleries) || "You have no galleries." %>
 </section>
 
 <section>
@@ -13,5 +13,5 @@
 
   <p><%= link_to "New Group", new_group_path %></p>
 
-  <%= render_list @user.groups %>
+  <%= render_list(@user.groups) || "You have no groups." %>
 </section>
