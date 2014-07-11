@@ -2,12 +2,16 @@
 
 <h2>Galleries</h2>
 
-<p><%= link_to "New Gallery", new_gallery_path %><p>
+<% if signed_in? && current_user == @user %>
+  <p><%= link_to "New Gallery", new_gallery_path %><p>
+<% end %>
 
 <%= render_list @user.galleries %>
 
 <h2>Groups</h2>
 
-<p><%= link_to "New Group", new_group_path %></p>
+<% if signed_in? && current_user == @user %>
+  <p><%= link_to "New Group", new_group_path %></p>
+<% end %>
 
 <%= render_list @user.groups %>

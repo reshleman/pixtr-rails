@@ -12,8 +12,10 @@
 
     <% if signed_in? %>
       <%= link_to "Home", root_path %>
-      <%= link_to "All Galleries", galleries_path %>
-      <%= link_to "All Groups", groups_path %>
+    <% end %>
+    <%= link_to "All Galleries", galleries_path %>
+    <%= link_to "All Groups", groups_path %>
+    <% if signed_in? %>
       <%= current_user.email %>
       (<%= link_to "Sign Out", session_path, method: :delete %>)
     <% else %>
