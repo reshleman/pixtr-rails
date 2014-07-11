@@ -23,9 +23,7 @@
 <section class="tags">
   <h2>Tags</h2>
 
-  <% @image.tags.each do |tag| %>
-    <div><%= link_to tag, tag_path(tag) %></div>
-  <% end %>
+  <%= render partial: "tags/tag", collection: @image.tags %>
 </section>
 
 <section class="comments">
