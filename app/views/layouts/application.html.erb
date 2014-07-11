@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PixtrRails</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>PixtrRails</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Pixtr</a>
+        </div>
 
-  <div>
-
-    <% if signed_in? %>
-      <%= link_to "Home", root_path %>
-    <% end %>
-    <%= link_to "All Galleries", galleries_path %>
-    <%= link_to "All Groups", groups_path %>
-    <% if signed_in? %>
-      <%= current_user.email %>
-      (<%= link_to "Sign Out", session_path, method: :delete %>)
-    <% else %>
-      <%= link_to "Sign Up", new_user_path %>
-      <%= link_to "Sign In", new_session_path %>
-    <% end %>
-  </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Galleries", galleries_path %></li>
+            <li><%= link_to "Groups", groups_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if signed_in? %>
+              <li><%= link_to "Sign Out", session_path, method: :delete %><li>
+            <% else %>
+              <li><%= link_to "Sign Up", new_user_path %></li>
+              <li><%= link_to "Sign In", new_session_path %></li>
+            <% end %>
+          </ul>
+          <% if signed_in? %>
+            <p class="navbar-text navbar-right"><%= current_user.email %></p>
+          <% end %>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
   <div>
     <% flash.each do |key, value| %>
       <p class="<%= key %>"><%= value %></p>
-    <% end %>
+  <% end %>
   </div>
 
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
-</body>
-</html>
+  </body>
+  </html>
