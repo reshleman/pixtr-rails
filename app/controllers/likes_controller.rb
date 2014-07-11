@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  before_action :require_login
+
   def create
     image = Image.find(params[:image_id])
     current_user.like(image)

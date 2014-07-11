@@ -2,10 +2,12 @@
 
 <p><%= @group.description %><p>
 
-<% if current_user.member?(@group) %>
-  <%= link_to "Leave this Group", leave_group_path(@group), method: :delete, data: { confirm: "Are you sure?" } %>
-<% else %>
-  <%= link_to "Join this Group", join_group_path(@group), method: :post %>
+<% unless current_user.nil? %>
+  <% if current_user.member?(@group) %>
+    <%= link_to "Leave this Group", leave_group_path(@group), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% else %>
+    <%= link_to "Join this Group", join_group_path(@group), method: :post %>
+  <% end %>
 <% end %>
 
 <h2>Images</h2>

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :require_login
+
   def create
     gallery = Gallery.find(params[:gallery_id])
     image = gallery.images.find(params[:image_id])

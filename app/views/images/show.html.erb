@@ -13,10 +13,12 @@
 
 <section class="likes">
   <%= pluralize(@image.likes.count, "Like") %>
-  <% if current_user.likes?(@image) %>
-    <%= link_to "Unlike", [@gallery, @image, :like], method: :delete %>
-  <% else %>
-    <%= link_to "Like", [@gallery, @image, :like], method: :post %>
+  <% unless current_user.nil? %>
+    <% if current_user.likes?(@image) %>
+      <%= link_to "Unlike", [@gallery, @image, :like], method: :delete %>
+    <% else %>
+      <%= link_to "Like", [@gallery, @image, :like], method: :post %>
+    <% end %>
   <% end %>
 </section>
 
