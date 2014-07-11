@@ -4,18 +4,10 @@
 
 <p><%= link_to "New Gallery", new_gallery_path %><p>
 
-<ul>
-  <% @user.galleries.each do |gallery| %>
-    <li><%= render gallery %></li>
-  <% end %>
-</ul>
+<%= render_list @user.galleries %>
 
 <h2>Groups</h2>
 
 <p><%= link_to "New Group", new_group_path %></p>
 
-<ul>
-  <% @user.groups.each do |group| %>
-    <li><%= render group %></li>
-  <% end %>
-</ul>
+<%= render_list @user.groups %>
