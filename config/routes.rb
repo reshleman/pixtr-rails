@@ -68,7 +68,8 @@ Rails.application.routes.draw do
   resources :galleries do
     resources :images, except: [:index] do
       resources :comments, only: [:create]
-      resource :like, only: [:create, :destroy]
+      post "like" => "image_likes#create"
+      delete "like" => "image_likes#destroy"
     end
   end
 

@@ -2,7 +2,7 @@ class Image < ActiveRecord::Base
   belongs_to :gallery
   has_many :comments
 
-  has_many :likes
+  has_many :likes, as: :content
 
   has_and_belongs_to_many :groups
 

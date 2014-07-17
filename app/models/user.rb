@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :groups, through: :group_memberships
 
   has_many :likes
-  has_many :liked_images, through: :likes, source: :image
+  has_many :liked_images, through: :likes, source: :content, source_type: "Image"
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true

@@ -1,0 +1,8 @@
+<%= pluralize(object.likes.count, "Like") %>
+<% if signed_in? %>
+  <% if current_user.likes?(object) %>
+    <%= link_to "Unlike", path, method: :delete %>
+  <% else %>
+    <%= link_to "Like", path, method: :post %>
+  <% end %>
+<% end %>

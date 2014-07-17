@@ -14,14 +14,7 @@
 </section>
 
 <section class="likes">
-  <%= pluralize(@image.likes.count, "Like") %>
-  <% if signed_in? %>
-    <% if current_user.likes?(@image) %>
-      <%= link_to "Unlike", [@gallery, @image, :like], method: :delete %>
-    <% else %>
-      <%= link_to "Like", [@gallery, @image, :like], method: :post %>
-    <% end %>
-  <% end %>
+  <%= render "likes", object: @image, path: [@gallery, @image, :like] %>
 </section>
 
 <section class="tags">

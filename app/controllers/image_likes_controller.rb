@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class ImageLikesController < ApplicationController
   before_action :require_login
 
   def create
