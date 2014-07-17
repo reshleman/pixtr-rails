@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :likes
 
-  has_many :liked_images, through: :likes, source: :content, source_type: "Image"
-  has_many :liked_galleries, through: :likes, source: :content, source_type: "Gallery"
-
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
 
@@ -25,15 +22,15 @@ class User < ActiveRecord::Base
   end
 
   def likes?(object)
-    likes.find_by(content: object)
+    likes.find_by(likeable: object)
   end
 
   def like(object)
-    likes.create(content: object)
+    likes.create(likeable: object)
   end
 
   def unlike(object)
-    like = likes.find_by(content: object)
+    like = likes.find_by(likeable: object)
     like.destroy()
   end
 end
