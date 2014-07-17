@@ -12,7 +12,9 @@
 
 <h2>Images</h2>
 
-<%= render(@group.images) || "This group has no images." %>
+<section class="container">
+  <%= render "thumbnail_table", images: @group.images %>
+</section>
 
 <h2>Group Members</h2>
 
