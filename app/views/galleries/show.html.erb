@@ -2,6 +2,10 @@
 
 <p> <%= @gallery.description %></p>
 
+<section class="likes">
+  <%= render "likes", object: @gallery, path: [@gallery, :like] %>
+</section>
+
 <% if signed_in? %>
   <nav>
     <%= link_to "Add Image", new_gallery_image_path(@gallery) %>

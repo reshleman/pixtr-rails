@@ -66,10 +66,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :galleries do
+    post "like" => "gallery_likes#create"
+    delete "like" => "gallery_likes#destroy"
+
     resources :images, except: [:index] do
-      resources :comments, only: [:create]
       post "like" => "image_likes#create"
       delete "like" => "image_likes#destroy"
+
+      resources :comments, only: [:create]
     end
   end
 

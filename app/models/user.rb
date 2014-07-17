@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   has_many :groups, through: :group_memberships
 
   has_many :likes
+
   has_many :liked_images, through: :likes, source: :content, source_type: "Image"
+  has_many :liked_galleries, through: :likes, source: :content, source_type: "Gallery"
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
@@ -22,15 +24,16 @@ class User < ActiveRecord::Base
     groups.delete(group)
   end
 
-  def likes?(image)
-    liked_images.include?(image)
+  def likes?(object)
+    likes.find_by(content: object)
   end
 
-  def like(image)
-    liked_images << image
+  def like(object)
+    likes.create(content: object)
   end
 
-  def unlike(image)
-    liked_images.delete(image)
+  def unlike(object)
+    like = likes.find_by(content: object)
+    like.destroy()
   end
 end
