@@ -12,6 +12,23 @@
 
 <br>
 
+<!--
+<div class="container">
+  I don't work with more than 4 images! And link me!
+<div class="row">
+  <% @images.each do |image| %>
+  <div class="col-xs-6 col-sm-3">
+    Use path helper here
+    <a href="/galleries/<%= image.gallery.id %>/images/<%= image.id %>" class="thumbnail">
+      <img src="<%= image.url %>" alt="<%= image.name %>">
+    </a>
+  </div>
+  <% end %>
+</div>
+</div>
+-->
+
 <div>
   <%= render(@images) || "This gallery has no images." %>
 </div>
+
