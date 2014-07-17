@@ -1,8 +1,14 @@
-<%= pluralize(object.likes.count, "Like") %>
-<% if signed_in? %>
-  <% if current_user.likes?(object) %>
-    <%= link_to "Unlike", path, method: :delete %>
-  <% else %>
-    <%= link_to "Like", path, method: :post %>
+<section class="likes">
+  <span class="badge"><%= pluralize(object.likes.count, "Like") %></span>
+  <% if signed_in? %>
+    <% if current_user.likes?(object) %>
+      <%= button_to path, class: "btn btn-default btn-xs", method: :delete do %>
+        Unlike <span class="glyphicon glyphicon-thumbs-down"></span>
+      <% end %>
+    <% else %>
+      <%= button_to path, class: "btn btn-default btn-xs", method: :post do %>
+        Like <span class="glyphicon glyphicon-thumbs-up"></span>
+      <% end %>
+    <% end %>
   <% end %>
-<% end %>
+</section>

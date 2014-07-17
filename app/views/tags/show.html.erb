@@ -1,4 +1,8 @@
-<h1>Images tagged with "<%= @tag.name %>"</h1>
+<div class="page-header">
+  <h1>
+    Images tagged with <%= @tag.name %>
+  </h1>
+</div>
 
 <section class="container">
   <%= render "thumbnail_table", images: @images %>

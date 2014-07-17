@@ -1,10 +1,11 @@
-<h1><%= @gallery.name %></h1>
+<div class="page-header">
+  <h1>
+    <%= @gallery.name %>
+    <small><%= @gallery.description %></small>
+  </h1>
+</div>
 
-<p> <%= @gallery.description %></p>
-
-<section class="likes">
-  <%= render "likes", object: @gallery, path: [@gallery, :like] %>
-</section>
+<%= render "likes", object: @gallery, path: [@gallery, :like] %>
 
 <% if signed_in? %>
   <nav>

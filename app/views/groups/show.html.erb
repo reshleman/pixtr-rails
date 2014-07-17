@@ -1,6 +1,9 @@
-<h1><%= @group.name %></h1>
-
-<p><%= @group.description %><p>
+<div class="page-header">
+  <h1>
+    <%= @group.name %>
+    <small><%= @group.description %></small>
+  </h1>
+</div>
 
 <% if signed_in? %>
   <% if current_user.member?(@group) %>

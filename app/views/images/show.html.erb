@@ -1,5 +1,11 @@
-<h1><%= @image.name %></h1>
-<p><%= @image.description %></p>
+<div class="page-header">
+  <h1>
+    <%= @image.name %>
+    <small><%= @image.description %></small>
+  </h1>
+</div>
+
+<%= render "likes", object: @image, path: [@gallery, @image, :like] %>
 
 <nav>
   <%= link_to @gallery.name, @gallery %>
@@ -11,10 +17,6 @@
 
 <section class="image">
   <%= image_tag @image.url %>
-</section>
-
-<section class="likes">
-  <%= render "likes", object: @image, path: [@gallery, @image, :like] %>
 </section>
 
 <section class="tags">
