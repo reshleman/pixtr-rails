@@ -2,20 +2,29 @@
   <h1>
     <%= @gallery.name %>
     <small><%= @gallery.description %></small>
+
+    <%= render "likes", object: @gallery, path: [@gallery, :like] %>
+
+    <% if signed_in? %>
+      <div class="pull-right">
+        <div class="btn-group">
+          <%= link_to new_gallery_image_path(@gallery), title: "Add Image", class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-plus"></span>
+            <span class="glyphicon glyphicon-picture"></span>
+          <% end %>
+          <%= link_to edit_gallery_path(@gallery), title: "Edit Gallery", class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-wrench"></span>
+          <% end %>
+          <%= link_to @gallery, title: "Delete Gallery", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </h1>
 </div>
 
-<%= render "likes", object: @gallery, path: [@gallery, :like] %>
 
-<% if signed_in? %>
-  <nav>
-    <%= link_to "Add Image", new_gallery_image_path(@gallery) %>
-    <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %>
-    <%= link_to "Delete Gallery", @gallery, method: :delete, data: { confirm: "Are you sure?" } %>
-  </nav>
-<% end %>
-
-<br>
 
 <section class="container">
   <%= render "thumbnail_table", images: @images %>

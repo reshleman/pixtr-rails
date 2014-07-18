@@ -2,18 +2,26 @@
   <h1>
     <%= @image.name %>
     <small><%= @image.description %></small>
+
+    <%= render "likes", object: @image, path: [@gallery, @image, :like] %>
+
+    <div class="pull-right">
+      <div class="btn-group">
+        <%= link_to @gallery, title: "View the #{ @gallery.name } gallery", class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-th"></span>
+        <% end %>
+        <% if signed_in? %>
+          <%= link_to edit_gallery_image_path(@gallery, @image), title: "Edit Image", class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-wrench"></span>
+          <% end %>
+          <%= link_to [@gallery, @image], title: "Delete Image", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </h1>
 </div>
-
-<%= render "likes", object: @image, path: [@gallery, @image, :like] %>
-
-<nav>
-  <%= link_to @gallery.name, @gallery %>
-  <% if signed_in? %>
-    <%= link_to "Edit Image", edit_gallery_image_path(@gallery, @image) %>
-    <%= link_to "Delete Image", [@gallery, @image], method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-</nav>
 
 <section class="image">
   <%= image_tag @image.url %>

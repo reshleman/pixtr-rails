@@ -12,10 +12,14 @@
   color: #EEE;
 }
 
-.likes form {
+.likes, .likes form {
   display: inline-block;
 }
 
-.likes .badge {
-  font-size: .9em;
+.likes button {
+  vertical-align: baseline;
+}
+
+.likes .label {
+  font-size: .375em;
 }

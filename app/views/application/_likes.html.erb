@@ -1,5 +1,5 @@
-<section class="likes">
-  <span class="badge"><%= pluralize(object.likes.count, "Like") %></span>
+<div class="likes">
+  <span class="label label-primary"><%= pluralize(object.likes.count, "Like") %></span>
   <% if signed_in? %>
     <% if current_user.likes?(object) %>
       <%= button_to path, class: "btn btn-default btn-xs", method: :delete do %>
@@ -11,4 +11,4 @@
       <% end %>
     <% end %>
   <% end %>
-</section>
+</div>
