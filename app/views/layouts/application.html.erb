@@ -41,13 +41,8 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div>
-    <% flash.each do |key, value| %>
-      <p class="<%= key %>"><%= value %></p>
-  <% end %>
-  </div>
-
   <div class="container">
+    <%= render  "flash_messages", flash: flash %>
     <%= yield %>
   </div>
 

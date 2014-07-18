@@ -3,13 +3,15 @@ class GroupMembershipsController < ApplicationController
     group = Group.find(params[:id])
     current_user.join(group)
 
-    redirect_to group, alert: "You've joined this group. Welcome!"
+    flash[:success] = "You've joined this group. Welcome!"
+    redirect_to group 
   end
 
   def destroy
     group = Group.find(params[:id])
     current_user.leave(group)
 
-    redirect_to group, alert: "You've left the group. Bye!"
+    flash[:success] = "You've left the group. Bye!"
+    redirect_to group
   end
 end
