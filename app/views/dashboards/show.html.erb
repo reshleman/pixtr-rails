@@ -2,18 +2,20 @@
   <h1><%= @user.email %>'s Dashboard</h1>
 </div>
 
-<section>
-  <h2>My Galleries</h2>
+<div class="row">
+  <div class="col-md-6">
+    <h2>My Galleries</h2>
 
-  <p><%= link_to "New Gallery", new_gallery_path %><p>
+    <p><%= link_to "New Gallery", new_gallery_path %><p>
 
-  <%= render "list", collection: @user.galleries %>
-</section>
+    <%= render "list", collection: @user.galleries %>
+  </div>
 
-<section>
-  <h2>My Groups</h2>
+  <div class="col-md-6">
+    <h2>My Groups</h2>
 
-  <p><%= link_to "New Group", new_group_path %></p>
+    <p><%= link_to "New Group", new_group_path %></p>
 
-  <%= render "list", collection: @user.groups %>
-</section>
+    <%= render "list", collection: @user.groups %>
+  </div>
+</div>
