@@ -8,4 +8,4 @@
   <%= link_to "New Gallery", new_gallery_path %>
 <% end %>
 
-<%= render_list(@galleries) || "There are no galleries." %>
+<%= render "list", collection: @galleries %>

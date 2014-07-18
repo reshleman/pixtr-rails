@@ -1,1 +1,5 @@
-<%= link_to group.name, group %>
+<% css_class ||= "" %>
+<%= link_to group, class: css_class do %>
+  <span class="badge"><%= group.images.count %></span>
+  <%= group.name %>
+<% end %>

@@ -6,4 +6,4 @@
 
 <%= link_to "New Group", new_group_path %>
 
-<%= render_list(@groups) || "There are no groups." %>
+<%= render "list", collection: @groups %>

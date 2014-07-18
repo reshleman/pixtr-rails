@@ -1,1 +1,5 @@
-<%= link_to gallery.name, gallery %>
+<% css_class ||= "" %>
+<%= link_to gallery, class: css_class do %>
+  <span class="badge"><%= gallery.images.count %></span>
+  <%= gallery.name %>
+<% end %>
